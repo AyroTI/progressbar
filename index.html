@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style>
+      * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 10px;
+      }
+
+      progress {
+        display: block;
+        width: 40em;
+        height: 40px;
+        color: yellow;
+        margin: 20px;
+        border-radius: 50px;
+        border: 0;
+      }
+
+      progress[value] {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      progress::-webkit-progress-value {
+        border: 0;
+        border-radius: 20px;
+      }
+
+      progress[value]::-webkit-progress-bar {
+        background-color: #ebebeb;
+        border-radius: 50px 50px 50px 50px;
+      }
+
+      button {
+        margin: 20px;
+      }
+
+      .yellow-progress-bar[value]::-webkit-progress-value {
+        border: solid 2px #cbb25f;
+        background: repeating-linear-gradient(
+          -45deg,
+          #ffdf94,
+          #ffdf94 10px,
+          #fad05a 10px,
+          #fad05a 20px
+        );
+      }
+
+      .blue-progress-bar[value]::-webkit-progress-value {
+        border: solid 2px #82acc2;
+        background: repeating-linear-gradient(
+          -45deg,
+          #91cff6,
+          #91cff6 10px,
+          #75c1e9 10px,
+          #75c1e9 20px
+        );
+      }
+
+      .white-progress-bar[value]::-webkit-progress-value {
+        border: solid 2px #c5c5c5;
+        background: repeating-linear-gradient(
+          -45deg,
+          #fefefe,
+          #fefefe 10px,
+          #fefefe 10px,
+          #fefefe 20px
+        );
+      }
+
+      .orange-progress-bar[value]::-webkit-progress-value {
+        border: solid 2px #c38379;
+        background: repeating-linear-gradient(
+          -45deg,
+          #ffa495,
+          #ffa495 10px,
+          #fd7767 10px,
+          #fd7767 20px
+        );
+      }
+
+      .green-progress-bar[value]::-webkit-progress-value {
+        background: repeating-linear-gradient(
+          -45deg,
+          #bbe182,
+          #bbe182 10px,
+          #9dd354 10px,
+          #9dd354 20px
+        );
+      }
+
+      .finish {
+        border: none;
+        display: inline-block;
+        padding: 0.7em 1.7em;
+        border-radius: 0.2em;
+        color: #fff;
+        background-color: #9dd354;
+        text-align: center;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <progress class="green-progress-bar" max="100" value="50"> 50% </progress>
+    <progress class="orange-progress-bar" max="100" value="50"> 50% </progress>
+    <progress class="white-progress-bar" max="100" value="50"> 50% </progress>
+    <progress class="blue-progress-bar" max="100" value="50"> 50% </progress>
+    <progress class="yellow-progress-bar" max="100" value="50"> 50% </progress>
+
+    <button class="finish" id="finish">finish</button>
+    <script>
+      document.querySelector("#finish").addEventListener("click", () => {
+        document.querySelectorAll("progress").forEach((progress) => {
+          progress.value = 100;
+        });
+      });
+    </script>
+  </body>
+</html>
+
